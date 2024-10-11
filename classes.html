@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+      <div class="mermaid">
+    
+        classDiagram
+          class Address {
+            address : str
+          }
+          class Apartment {
+            price : int
+          }
+          class Building {
+            address
+          }
+          class BuildingList {
+            buildings : List[Building]
+          }
+          class BusRoute {
+            label : str
+            stops : List[BusStop]
+          }
+          class BusStop {
+            connections : List[str]
+            number : int
+          }
+          class Grocery {
+            name : str
+          }
+          class LatLong {
+            latitude : float
+            longitude : float
+            distance(addr: Self) float
+          }
+          class Location {
+            coordinates
+          }
+          Address --|> Location
+          Apartment --|> Building
+          BusStop --|> Location
+          Grocery --|> Building
+          Address --* Building : address
+          LatLong --* Location : coordinates
+          BuildingList --o Building
+          BusRoute --o BusStop
+  
+       </div>
+  </body>
+</html>
